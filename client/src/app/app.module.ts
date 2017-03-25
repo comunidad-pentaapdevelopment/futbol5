@@ -13,6 +13,7 @@ import { UserEditComponent } from './components/user-edit.component';
 
 // client
 import { ClientAddComponent } from './components/client-add.component';
+import { ClientListComponent } from './components/client-list.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ClientAddComponent } from './components/client-add.component';
     AppComponent,
     HomeComponent,
     UserEditComponent,
-    ClientAddComponent
+    ClientAddComponent,
+    ClientListComponent
   ],
   imports: [
     BrowserModule,

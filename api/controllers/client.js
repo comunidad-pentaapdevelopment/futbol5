@@ -29,9 +29,9 @@ function getClients(req, res){
 	}else{
 		var page = 1;
 	}
-	var itemsPerPage = 4;
+	var itemsPerPage = 10;
 
-	Client.find().sort('name').paginate(page, itemsPerPage, function(err,clients,total){
+	Client.find().sort('surname').paginate(page, itemsPerPage, function(err,clients,total){
 		if(err){
 			res.status(500).send({message:'Error en la petición'});
 		}else{

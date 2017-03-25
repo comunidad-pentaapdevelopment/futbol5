@@ -46,6 +46,7 @@ export class ClientAddComponent implements OnInit{
 				}else{
 					this.alertMessage = 'El cliente se ha creado correctamente';
 					this.client = response.client;
+					this._router.navigate(['/clientes', 1]);
 				}
 			},
 			error => {

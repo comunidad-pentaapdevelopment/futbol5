@@ -1,0 +1,52 @@
+<div class="head-page" *ngIf="identity">
+	<h1>{{titulo}}</h1>
+
+	<a [routerLink]="['/crear-cliente']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default">
+		Añadir cliente
+	</a>
+
+	<ul class="pagination pull-right">
+		<li><a [routerLink]="['/clientes', prev_page]">&laquo;</a></li>
+		<li><a [routerLink]="['/clientes', next_page]">&raquo;</a></li>
+	</ul>
+</div>
+
+<div class="clearfix"></div>
+<table class="col-lg-12">
+	<caption>Datos Personales</caption>
+	<tr>
+        <td class="texto-izq">
+        	<h2>Apellido</h2>
+        </td>
+        <td class="texto-izq">
+        	<h2>Nombre</h2>
+        </td>
+        <td class="texto-cent">
+        	<h2>Telefono</h2>
+        </td>
+        <td class="texto-cent">
+        	<h2>Dni</h2>
+        </td>
+        <td class="texto-izq">
+        	<h2>Email</h2>
+        </td>
+    </tr> 
+    <tr *ngFor="let client of clients">
+        <td class="texto-izq">
+        	{{client.surname}}
+        </td>
+        <td class="texto-izq">
+        	{{client.name}}
+        </td>
+        <td class="texto-cent">
+        	{{client.phone}}
+        </td>
+        <td class="texto-cent">
+        	{{client.dni}}
+        </td>
+        <td class="texto-izq">
+        	{{client.email}}
+        </td>
+    </tr> 
+ </table>
+
