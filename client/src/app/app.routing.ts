@@ -10,11 +10,13 @@ import { UserEditComponent } from './components/user-edit.component';
 // client
 import { ClientAddComponent } from './components/client-add.component';
 import { ClientListComponent } from './components/client-list.component';
+import { ClientEditComponent } from './components/client-edit.component';
 
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
 	{path: 'clientes/:page', component: ClientListComponent},
 	{path: 'crear-cliente', component: ClientAddComponent},
+	{path: 'editar-cliente/:id', component: ClientEditComponent},
 	{path: 'mis-datos', component: UserEditComponent},
 	{path: '**', component: HomeComponent}
 ];

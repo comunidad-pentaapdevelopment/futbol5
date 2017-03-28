@@ -47,6 +47,20 @@
         <td class="texto-izq">
         	{{client.email}}
         </td>
+        <td *ngIf="identity.role == 'ROLE_ADMIN'" >
+            <a [routerLink]="['/editar-cliente', client._id]" class="glyphicon glyphicon-pencil"></a>
+        </td>
+        <td *ngIf="identity.role == 'ROLE_ADMIN'">
+            <a (click)="onDeleteConfirm(client._id)" class="glyphicon glyphicon-remove"></a>
+            <div class="seguro" *ngIf="confirmado == client._id">
+            <a (click)="onDeleteClient(client._id)" class="btn btn-sm btn-danger">
+                Eliminar
+            </a>
+            <a (click)="onCancelClient()" class="btn btn-sm btn-primary">
+                Cancelar
+            </a>
+        </div>
+        </td>
     </tr> 
  </table>
 

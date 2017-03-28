@@ -135,8 +135,17 @@ tr:nth-child(odd) td{
 	background: #FEFEFE;
 } 
 
-tr td:hover{ 
-	background: #666;
-	 color: #FFF; 
+.glyphicon-pencil{
+	color:green;
 }
 
+.glyphicon-remove{
+	color:red;
+}
+
+.seguro{
+	margin-top: -25px;
+    margin-right: -108px;
+    height: 0px;
+    margin-left: -107px;
+}

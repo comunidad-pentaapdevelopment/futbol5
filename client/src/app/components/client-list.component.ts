@@ -75,4 +75,32 @@ export class ClientListComponent implements OnInit{
 			);
 		});
 	}
+
+	public confirmado;
+	onDeleteConfirm(id){
+		this.confirmado = id;
+	}
+
+	onCancelClient(){
+		this.confirmado = null;
+	}
+
+	onDeleteClient(id){
+		this._clientService.deleteClient(this.token, id).subscribe(
+			response => {
+					if(!response.client){
+						alert('Error en el servidor');
+					}
+					this.getClients();
+				},
+			error => {
+			   var errorMessage = <any>error;
+
+	  			if(errorMessage != null){
+	  				var body = JSON.parse(error._body);
+	  				//this.errorMessage = body.message;
+	  			}
+			}
+		);
+	}
 }

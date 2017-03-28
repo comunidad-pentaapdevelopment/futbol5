@@ -14,6 +14,7 @@ import { UserEditComponent } from './components/user-edit.component';
 // client
 import { ClientAddComponent } from './components/client-add.component';
 import { ClientListComponent } from './components/client-list.component';
+import { ClientEditComponent } from './components/client-edit.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ClientListComponent } from './components/client-list.component';
     HomeComponent,
     UserEditComponent,
     ClientAddComponent,
-    ClientListComponent
+    ClientListComponent,
+    ClientEditComponent
   ],
   imports: [
     BrowserModule,
