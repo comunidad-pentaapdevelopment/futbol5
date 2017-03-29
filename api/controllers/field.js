@@ -54,7 +54,7 @@ function saveField(req, res){
 	field.description = params.description;
 	field.price = params.price;
 	field.image = 'null';
-	field.state = true;
+	field.available = true;
 
 	field.save((err, fieldStored) => {
 		if(err){

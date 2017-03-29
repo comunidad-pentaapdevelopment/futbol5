@@ -149,3 +149,23 @@ tr:nth-child(odd) td{
     height: 0px;
     margin-left: -107px;
 }
+
+/* CANCHAS */
+
+.glyphicon-ok{
+	color:green;
+	font-size: xx-large;
+}
+
+.glyphicon-minus{
+	color:red;
+	font-size: xx-large;
+}
+
+.field_image_for_edit img{
+	width: 150px;
+}
+
+.field-image{
+	height: 140px;
+}

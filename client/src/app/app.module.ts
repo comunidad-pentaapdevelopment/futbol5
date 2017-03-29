@@ -16,6 +16,11 @@ import { ClientAddComponent } from './components/client-add.component';
 import { ClientListComponent } from './components/client-list.component';
 import { ClientEditComponent } from './components/client-edit.component';
 
+// Field
+import { FieldAddComponent } from './components/field-add.component';
+import { FieldEditComponent } from './components/field-edit.component';
+import { FieldListComponent } from './components/field-list.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { ClientEditComponent } from './components/client-edit.component';
     UserEditComponent,
     ClientAddComponent,
     ClientListComponent,
-    ClientEditComponent
+    ClientEditComponent,
+    FieldAddComponent,
+    FieldEditComponent,
+    FieldListComponent
   ],
   imports: [
     BrowserModule,

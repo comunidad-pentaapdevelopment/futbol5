@@ -1,0 +1,45 @@
+<div class="col-lg-6" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+	<h1>{{titulo}}</h1>
+
+	<div *ngIf="alertMessage">
+			<div class="alert alert-info">
+			  {{alertMessage}}
+			</div>
+	</div>
+
+	<form #formField="ngForm" (ngSubmit)="onSubmit()">
+		<p>
+			<label>Descripción</label>
+			<input type="text" #description="ngModel" name="description" [(ngModel)]="field.description" required class="form-control"/>
+			<span *ngIf="!description.valid && description.touched">
+				La descripción es obligatorio
+			</span>
+		</p>
+
+		<p>
+			<label>Precio</label>
+			<input type="number" #price="ngModel" name="price" [(ngModel)]="field.price" required class="form-control"/>
+			<span *ngIf="!price.valid && price.touched">
+				El precio es obligatorio
+			</span>
+		</p>
+
+		<div *ngIf="is_edit">
+			<div class="field_image_for_edit" *ngIf="field.image && field.image != 'null'">
+				<img src="{{url + 'get-image-field/' + field.image }}" />
+			</div>
+
+			<p>
+				<label>Sube la imagen de la cancha</label>
+				<input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+			</p>
+		</div>
+
+		<input type="submit" value="{{titulo}}" [disabled]="!formField.form.valid" class="btn btn-success" />
+	</form>
+</div>
+
+<div class="col-lg-6" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+	<h1>Error</h1>
+	<p>No tienes acceso a esta parte de la aplicación</p>
+</div>

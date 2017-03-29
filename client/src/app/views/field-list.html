@@ -1,0 +1,63 @@
+<div class="head-page" *ngIf="identity">
+	<h1>{{titulo}}</h1>
+
+	<a [routerLink]="['/crear-cancha']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default">
+		Añadir cancha
+	</a>
+
+	<ul class="pagination pull-right">
+		<li><a [routerLink]="['/canchas', prev_page]">&laquo;</a></li>
+		<li><a [routerLink]="['/canchas', next_page]">&raquo;</a></li>
+	</ul>
+</div>
+
+<div class="clearfix"></div>
+<table class="col-lg-12">
+	<caption>Datos de la Cancha</caption>
+	<tr>
+        <td class="texto-izq">
+        	<h2>Descripción</h2>
+        </td>
+        <td class="texto-cent">
+        	<h2>Precio</h2>
+        </td>
+        <td class="texto-cent">
+        	<h2>Imagen</h2>
+        </td>
+        <td class="texto-cent">
+            <h2>Estado</h2>
+        </td>
+    </tr> 
+    <tr *ngFor="let field of fields">
+        <td class="texto-izq">
+        	{{field.description}}
+        </td>
+        <td class="texto-cent">
+        	{{field.price}}
+        </td>
+        <td class="texto-cent">
+            <img class="field-image" src="{{url + 'get-image-field/' + field.image}}" />
+        </td>
+
+        <td class="texto-cent" >
+            <p *ngIf="field.available == true" class="glyphicon glyphicon-ok"></p>
+            <p *ngIf="field.available == false" class="glyphicon glyphicon-minus"></p>
+        </td>
+        
+        <td *ngIf="identity.role == 'ROLE_ADMIN'" >
+            <a [routerLink]="['/editar-cancha', field._id]" class="glyphicon glyphicon-pencil"></a>
+        </td>
+        <td *ngIf="identity.role == 'ROLE_ADMIN'">
+            <a (click)="onDeleteConfirm(field._id)" class="glyphicon glyphicon-remove"></a>
+            <div class="seguro" *ngIf="confirmado == field._id">
+            <a (click)="onDeleteField(field._id)" class="btn btn-sm btn-danger">
+                Eliminar
+            </a>
+            <a (click)="onCancelField()" class="btn btn-sm btn-primary">
+                Cancelar
+            </a>
+        </div>
+        </td>
+    </tr> 
+ </table>
+
